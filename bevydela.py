@@ -23,11 +23,11 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 @st.cache(allow_output_mutation=True)
 def read_files():
-   df = pd.read_csv('data.csv')  
+   df = helper.import_data('./chatt.txt')
+   df = helper.preprocess_data(df)
    df['Date'] = df['Date'].apply(pd.to_datetime)
    df.sort_values('Date', inplace=True)
    return df
-
 
 
 @st.cache(allow_output_mutation=True)
