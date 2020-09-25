@@ -4,9 +4,6 @@ import re
 import pandas   as pd
 import numpy    as np
 
-import emoji                as emoji_package
-import operator
-
 import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime
