@@ -12,7 +12,6 @@ from datetime import datetime
 
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud 
-from tqdm import tqdm 
 
 import matplotlib.dates     as mdates
 from matplotlib.colors      import ColorConverter, ListedColormap
@@ -26,29 +25,7 @@ from matplotlib.lines       import Line2D
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def plot_active_hours(df, color='#ffdfba', savefig=False, dpi=100, user='All'):
-    """ Plot active hours of a single user or all 
-    users in the group. A bar is shown if in that hour
-    user(s) are active by the following standard:
     
-    If there are at least 20% of the maximum hour of messages
-    
-    
-    Parameters:
-    -----------
-    df : pandas dataframe
-        Dataframe of all messages
-    color : str, default '#ffdfba'
-        Hex color of bars
-    savefig : boolean, deafult False
-        Whether or not to save the figure instead of showing
-    dpi : int, default 100
-        Resolution of the figure you want to save
-    user : str, default 'All'
-        Variable to choose if you want to see the active hours
-        of a single user or all of them together. 'All' shows 
-        all users and the name of the user shows that user. 
-    
-    """
     # Prepare data for plotting
     if user != 'All':
         df = df.loc[df.User == user]
@@ -328,7 +305,6 @@ def preprocess_data(df, min_messages=10):
         else:
             sample_list.append(i[1:])
     
-    
     defin = []
     for data in sample_list:
         if data[0] =='[':
@@ -399,9 +375,9 @@ st.write("# ")
 
 df = read_files()
 
-st.write("# ")
+st.write(df)
 
-
+'''
 df1 = df[ df['User'] == 'Ge']
 df2 = df[ df['User']=='Àlex'] 
 
@@ -511,7 +487,7 @@ plt.tight_layout(pad = 0)
 st.pyplot(plt.show())
 
 
-
+'''
 
 
 
