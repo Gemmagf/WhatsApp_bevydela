@@ -1,5 +1,4 @@
 streamlit==0.67.0
-msys2-conda-epoch==20160418=1
 pandas==1.0.5
 numexpr==2.7.1
 numpy==1.18.5
