@@ -5,6 +5,5 @@ numpy==1.18.5
 plotly==4.10.0
 wordcloud==1.8.0
 matplotlib==3.2.2
-tqdm==4.47.0
 emoji==0.6.0
-
+plotly-express==0.4.1
