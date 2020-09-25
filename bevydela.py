@@ -5,7 +5,7 @@ import pandas   as pd
 import numpy    as np
 
 import emoji                as emoji_package
-import regex 
+
 import operator
 
 import plotly.graph_objects as go
