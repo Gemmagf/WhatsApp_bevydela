@@ -395,8 +395,6 @@ st.markdown("<h1 style='text-align: center; color: #ed6d9b;font-family:verdana;f
 st.markdown("<h4 style='text-align: center;font-family:verdana; color: #D0D3DA;'>Conversa de Whatsapp\n", unsafe_allow_html=True)
 st.write("# ")
 
-df = read_files()
-
 st.write(df)
 
 '''
