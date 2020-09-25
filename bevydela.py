@@ -19,13 +19,36 @@ from matplotlib.lines       import Line2D
 
 
 
+
 ###############################
 #######    Funcions     #######
 ###############################
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def plot_active_hours(df, color='#ffdfba', savefig=False, dpi=100, user='All'):
+    """ Plot active hours of a single user or all 
+    users in the group. A bar is shown if in that hour
+    user(s) are active by the following standard:
     
+    If there are at least 20% of the maximum hour of messages
+    
+    
+    Parameters:
+    -----------
+    df : pandas dataframe
+        Dataframe of all messages
+    color : str, default '#ffdfba'
+        Hex color of bars
+    savefig : boolean, deafult False
+        Whether or not to save the figure instead of showing
+    dpi : int, default 100
+        Resolution of the figure you want to save
+    user : str, default 'All'
+        Variable to choose if you want to see the active hours
+        of a single user or all of them together. 'All' shows 
+        all users and the name of the user shows that user. 
+    
+    """
     # Prepare data for plotting
     if user != 'All':
         df = df.loc[df.User == user]
@@ -219,7 +242,8 @@ def plot_messages(df, colors=None, trendline=False, savefig=False, dpi=100):
     else:
         plt.show()
            
- 
+
+@st.cache(allow_output_mutation=True) 
 def import_data(file, path = ''):
     with open('./chatt.txt', encoding = 'utf-8') as outfile:
         raw_text = outfile.readlines()
@@ -268,7 +292,7 @@ def remove_inactive_users(df, min_messages=10):
     df = df[df.User.isin(to_keep)]
     return df
 
-
+@st.cache(allow_output_mutation=True)
 def preprocess_data(df, min_messages=10):
     # Create column with only message, not date/name etc.
     df['Message_Clean'] = df.apply(lambda row:clean_message(row), axis = 1)
@@ -304,6 +328,7 @@ def preprocess_data(df, min_messages=10):
             sample_list.append(par[1:])
         else:
             sample_list.append(i[1:])
+    
     
     defin = []
     for data in sample_list:
@@ -348,13 +373,10 @@ def preprocess_data(df, min_messages=10):
     
  
 
-@st.cache(allow_output_mutation=True)
-def read_files():
-   df = import_data('./chatt.txt')
-   df = preprocess_data(df)
-   df['Date'] = df['Date'].apply(pd.to_datetime)
-   df.sort_values('Date', inplace=True)
-   return df
+df = import_data('./chatt.txt')
+df = preprocess_data(df)
+df['Date'] = df['Date'].apply(pd.to_datetime)
+df.sort_values('Date', inplace=True)
 
 
 
