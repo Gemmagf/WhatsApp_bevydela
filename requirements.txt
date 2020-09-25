@@ -7,4 +7,4 @@ wordcloud==1.8.0
 matplotlib==3.2.2
 tqdm==4.47.0
 emoji==0.6.0
-regex == @ file:///C:/ci/regex_1596811715751/work
+regex @ file:///C:/ci/regex_1596811715751/work
