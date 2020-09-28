@@ -518,9 +518,9 @@ fig = px.parallel_categories(df, dimensions=['Year', 'Day_of_Week','User'],
                 color="Codi", color_continuous_scale=px.colors.sequential.PuRd,           
                 color_continuous_midpoint=5,
                 labels={ 'Year':'Any', 'Day_of_Week':'Dia setmana','User':'Persona'})
-fig.show()
+#fig.show()
 
-st.pyplot(plt.show())
+st.pyplot(fig.show())
 
 
 
