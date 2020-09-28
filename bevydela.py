@@ -514,13 +514,13 @@ st.write("# ")
 
 
 df['Codi'] = df['User'].replace(['Ge','Àlex'], [5,3])
-fig = px.parallel_categories(df, dimensions=['Year', 'Day_of_Week','User'],
+fig10 = px.parallel_categories(df, dimensions=['Year', 'Day_of_Week','User'],
                 color="Codi", color_continuous_scale=px.colors.sequential.PuRd,           
                 color_continuous_midpoint=5,
                 labels={ 'Year':'Any', 'Day_of_Week':'Dia setmana','User':'Persona'})
 #fig.show()
 
-st.pyplot(fig.show())
+st.pyplot(fig10)
 
 
 
