@@ -509,6 +509,18 @@ st.pyplot(plt.show())
 
 
 
+st.markdown("<h2 style='text-align: center; color: #D0D3DA;font-family:verdana;font-size:150%;'>Perfil Usuaris</h1>", unsafe_allow_html=True)
+st.write("# ")
+
+
+df['Codi'] = df['User'].replace(['Ge','Àlex'], [5,3])
+fig = px.parallel_categories(df, dimensions=['Year', 'Day_of_Week','User'],
+                color="Codi", color_continuous_scale=px.colors.sequential.PuRd,           
+                color_continuous_midpoint=5,
+                labels={ 'Year':'Any', 'Day_of_Week':'Dia setmana','User':'Persona'})
+fig.show()
+
+st.pyplot(plt.show())
 
 
 
