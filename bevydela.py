@@ -520,7 +520,7 @@ fig10 = px.parallel_categories(df, dimensions=['Year', 'Day_of_Week','User'],
                 labels={ 'Year':'Any', 'Day_of_Week':'Dia setmana','User':'Persona'})
 fig10.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
-st.pyplot(fig10)
+st.pyplot(fig10.show())
 
 
 
